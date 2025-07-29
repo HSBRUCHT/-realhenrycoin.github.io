@@ -19,4 +19,4 @@ function showNextStatement() {
   }, 500);
 }
 
-setInterval(showNextStatement, 30000); // Every 30 seconds
+setInterval(showNextStatement, 10000); // Every 10 seconds
