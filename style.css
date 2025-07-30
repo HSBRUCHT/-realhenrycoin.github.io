@@ -150,8 +150,8 @@ p {
 
 .star-glow {
   position: absolute;
-  top: 78px;      /* afgesteld voor juiste plek */
-  left: 95px;     /* afgesteld voor juiste plek */
+  top: 112px;      /* afgesteld voor juiste plek */
+  left: 84px;     /* afgesteld voor juiste plek */
   width: 18px;
   height: 18px;
   border-radius: 50%;
