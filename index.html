@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RealHenry8Coin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="star-glow"></div>
+  <div class="glint-overlay"></div>
+
+  <div class="fixed-quote">“De bank belooft je niks, behalve dat je geld minder waard wordt. Crypto belooft je niks, maar het kan je leven veranderen.”</div>
+  <div class="statement-container" id="statement">Decentralize control. Centralize truth.</div>
+
+  <div class="hero fade-in">
+    <img src="henrycoin-logo.png" class="logo glint" alt="HenryCoin Logo" />
+    <h1>RealHenry8Coin</h1>
+    <h2>Rare. Legendary. RealHenry8Coin. Common sense, anchored on the blockchain.</h2>
+    <p>RealHenry8Coin stands for freedom and the return of common sense in a digital world.<br>Rare by nature. Legendary by vision.</p>
+    <div class="buttons">
+      <a href="#" class="btn">Buy (Coming Soon)</a>
+      <a href="#" class="btn">Contact</a>
+      <a href="#" class="btn bscscan">Bekijk RealHenry op BscScan</a>
+    </div>
+  </div>
+
+  <div class="coin-info">
+    <p><img src="bnb-logo.png" class="coin-logo"/> <strong>Name:</strong><br>RealHenry</p>
+    <p><strong>Blockchain:</strong><br>BNB Smart Chain</p>
+    <p><strong>Supply:</strong><br>800,000,000</p>
+  </div>
+
+  <script>
+    const statements = [
+      "Decentralize control. Centralize truth.",
+      "Common sense doesn’t go out of style — it gets silenced.",
+      "Freedom begins with ownership of your own value."
+    ];
+    let index = 0;
+    const el = document.getElementById("statement");
+
+    setInterval(() => {
+      index = (index + 1) % statements.length;
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = statements[index];
+        el.style.opacity = 1;
+
+        // trigger glint effect
+        const glint = document.querySelector('.glint-overlay');
+        glint.classList.remove('show');
+        void glint.offsetWidth;
+        glint.classList.add('show');
+
+      }, 500);
+    }, 10000);
+  </script>
+</body>
+</html>
