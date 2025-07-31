@@ -187,12 +187,12 @@ p {
   position: absolute;
   top: 400px;
   left: 20px;
-  width: 300px;
+  width: 600px;
   background-color: rgba(204, 120, 60, 0.70);
   padding: 10px;
   border-radius: 5px;
   text-align: left;
-  font-size: 8px;
+  font-size: 2px;
   line-height: 1.4;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
