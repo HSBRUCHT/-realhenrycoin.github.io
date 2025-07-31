@@ -185,14 +185,14 @@ p {
 
 .common-sense-box {
   position: absolute;
-  top: 140px;
+  top: 200px;
   left: 20px;
-  width: 260px;
+  width: 130px;
   background-color: rgba(204, 120, 60, 0.70);
   padding: 10px;
   border-radius: 5px;
   text-align: left;
-  font-size: 12px;
+  font-size: 8px;
   line-height: 1.4;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
