@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RealHenry8Coin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="star-glow"></div>
+
+  <div class="coin-info">
+    <img src="bnb-logo.png" alt="BNB Smart Chain" class="coin-logo" />
+    <p><strong>Name:</strong> RealHenry</p>
+    <p><strong>Blockchain:</strong> BNB Smart Chain</p>
+    <p><strong>Supply:</strong> 800,000,000</p>
+    <a href="https://bscscan.com/token/0x92CB19af04F1Cefd2e7EF94fC6b14699Fbd36461" class="btn sidebar-btn" target="_blank">Bekijk op BscScan</a>
+  </div>
+
+  <div class="common-sense-box">
+    <p><strong>🧠 Common Sense van de Week</strong><br>
+    Waarom inflatie accepteren als we ook kunnen kiezen voor digitale schaarste?</p>
+  </div>
+
+  <div class="fixed-quote">
+    <p>“De bank belooft je niks, behalve dat je geld minder waard wordt. Crypto belooft je niks, maar het kan je leven veranderen.”</p>
+  </div>
+
+  <div class="statement-container">
+    <p id="statement"></p>
+  </div>
+  <div class="hero">
+    <img src="logo.png" alt="RealHenry8Coin Logo" class="logo glint" />
+    <h1 class="fade-in">RealHenry8Coin</h1>
+    <h2 class="fade-in">Rare. Legendary. RealHenry8Coin. Common sense, anchored on the blockchain.</h2>
+    <p class="fade-in">
+      RealHenry8Coin stands for freedom and the return of common sense in a digital world.<br />
+      Rare by nature. Legendary by vision. 
+    </p>
+    <div class="buttons fade-in">
+      <a href="#" class="btn">Buy (Coming Soon)</a>
+      <a href="#" class="btn">Contact</a>
+    </div>
+  </div>
+  <script>
+    const statements = [
+      "Freedom begins with ownership of your own value.",
+      "Common sense doesn’t go out of style — it gets silenced.",
+      "Decentralize control. Centralize truth.",
+      "Digital value, rooted in real-world reason.",
+      "The future belongs to those who think for themselves."
+    ];
+    let index = 0;
+    const el = document.getElementById("statement");
+
+    function showNextStatement() {
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = statements[index];
+        el.style.opacity = 1;
+        index = (index + 1) % statements.length;
+      }, 500);
+    }
+
+    setInterval(showNextStatement, 10000);
+    showNextStatement();
+  </script>
+</body>
+</html>
