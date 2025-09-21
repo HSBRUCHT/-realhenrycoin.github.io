@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RealHenry8Coin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="star-glow"></div>
+
+  <div class="coin-info">
+    <img src="bnb-logo.png" alt="BNB Smart Chain" class="coin-logo" />
+    <p><strong>Name:</strong> RealHenry</p>
+    <p><strong>Blockchain:</strong> BNB Smart Chain</p>
+    <p><strong>Supply:</strong> 800,000,000</p>
+    <a href="https://bscscan.com/token/0x92CB19af04F1Cefd2e7EF94fC6b14699Fbd36461" class="btn bscscan" target="_blank">Bekijk op BscScan</a>
+  </div>
+
+  <div class="fixed-quote">
+    <p>“De bank belooft je niks, behalve dat je geld minder waard wordt. Crypto belooft je niks, maar het kan je leven veranderen.”</p>
+  </div>
+
+  <div class="statement-container">
+    <p id="statement"></p>
+  </div>
+
+  <!-- Cowboy quote -->
+  <div class="cowboy-quote">
+    <p>✨ De cowboy zit stevig in het zadel – goud in de zak, crypto in de holster, aandelen als kudde, en altijd cash als buffer water mee 🤠</p>
+  </div>
+
+  <div class="common-sense-box">
+    <p><strong>Common Sense van de Week</strong><br>
+    Waarom inflatie accepteren als we ook kunnen kiezen voor digitale schaarste?</p>
+  </div>
+
+  <div class="hero">
+    <img src="logo.png" alt="RealHenry8Coin Logo" class="logo glint" />
+    <h1 class="fade-in">RealHenry8Coin</h1>
+    <h2 class="fade-in">Rare. Legendary. RealHenry8Coin. Common sense, anchored on the blockchain.</h2>
+    <p class="fade-in">
+      RealHenry8Coin stands for freedom and the return of common sense in a digital world.<br />
+      Rare by nature. Legendary by vision.
+    </p>
+    <div class="buttons fade-in">
+      <a href="#" id="openPoll" class="btn">Buy (Interest Poll)</a>
+      <a href="#contact" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <section id="contact" class="contact-section">
+    <h2>Contact</h2>
+    <p class="contact-intro">Heb je vragen, ideeën of wil je gewoon sparren over Common Sense en investeren?</p>
+    <div class="contact-divider"></div>
+    <ul class="contact-list">
+      <li>✉️ <a href="mailto:henry.snippe@ziggo.nl">henry.snippe@ziggo.nl</a></li>
+      <li>💼 <a href="https://www.linkedin.com/in/henry-snippe-ab90a218/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li>📝 <a href="https://henrysnippe.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+    </ul>
+  </section>
+
+  <!-- Thank you toast -->
+  <div id="toast" class="toast" hidden>Bedankt! Je interesse is verzonden.</div>
+
+  <!-- Modal: Interest Poll (FormSubmit) -->
+  <div class="modal" id="pollModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closePoll"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pollTitle">
+      <button class="modal-close" id="xClose" aria-label="Sluiten">×</button>
+      <h3 id="pollTitle">Interessepeiling (niet-bindend)</h3>
+      <p class="modal-sub">Laat weten hoeveel coins je zou willen kopen en tegen welke prijs. Dit is géén aankoop, alleen peiling.</p>
+
+      <form id="pollForm" action="https://formsubmit.co/henry.snippe@ziggo.nl" method="POST">
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_subject" value="Interesse in RealHenry8Coin (peiling)" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="./?success=1#contact" />
+        <!-- Honeypot -->
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="form-row two-col">
+          <div class="col">
+            <label for="name">Naam</label>
+            <input type="text" id="name" name="Naam" placeholder="Je naam" />
+          </div>
+          <div class="col">
+            <label for="email">E‑mail</label>
+            <input type="email" id="email" name="E-mail" placeholder="jij@voorbeeld.com" required />
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="col">
+            <label for="qty">Aantal coins (indicatief)</label>
+            <input type="number" id="qty" name="Aantal coins" min="1" step="1" placeholder="bijv. 1000" required />
+          </div>
+          <div class="col">
+            <label for="price">Gewenste prijs per coin</label>
+            <input type="text" id="price" name="Gewenste prijs per coin" placeholder="bijv. €0,01" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="note">Opmerking (optioneel)</label>
+          <textarea id="note" name="Opmerking" rows="3" placeholder="Eventuele voorkeuren of vragen..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Versturen</button>
+          <button type="button" class="btn btn-ghost" id="cancelPoll">Annuleren</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Rotating statements
+    const statements = [
+      "Freedom begins with ownership of your own value.",
+      "Common sense doesn’t go out of style — it gets silenced.",
+      "Decentralize control. Centralize truth.",
+      "Digital value, rooted in real-world reason.",
+      "The future belongs to those who think for themselves."
+    ];
+    let index = 0;
+    const el = document.getElementById("statement");
+    function showNextStatement() {
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.textContent = statements[index];
+        el.style.opacity = 1;
+        index = (index + 1) % statements.length;
+      }, 500);
+    }
+    setInterval(showNextStatement, 10000);
+    showNextStatement();
+
+    // Modal logic
+    const openPoll = document.getElementById('openPoll');
+    const pollModal = document.getElementById('pollModal');
+    const closeEls = [document.getElementById('closePoll'), document.getElementById('xClose'), document.getElementById('cancelPoll')];
+
+    function openModal() {
+      pollModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('email').focus(), 50);
+    }
+    function closeModal() {
+      pollModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    openPoll.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+    closeEls.forEach(el => el.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // Toast on success (?success=1)
+    function maybeShowToast() {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get('success') === '1') {
+        const t = document.getElementById('toast');
+        t.hidden = false;
+        setTimeout(() => t.hidden = true, 4000);
+      }
+    }
+    maybeShowToast();
+  </script>
+</body>
+</html>
